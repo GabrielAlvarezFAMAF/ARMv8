@@ -1,4 +1,4 @@
-		.include "basicFigures.s"
+		.include "complexfigures.s"
 		.equ SCREEN_WIDTH,   640
 		.equ SCREEN_HEIGH,   480
 		.equ BITS_PER_PIXEL, 32
@@ -15,9 +15,9 @@
 		//---------------- CODE HERE ------------------------------------
 		// Define the rectangle variables
 	//----------------------------------------------------------------------------------
-		movz x10, 0x17, lsl 16		  // base color 0x0000C7
-		movk x10, 0x0585, lsl 00      // base color 0x1585C7
-		//bl printRectangle  // call the draw_rectangle function from basicFigures.s
+		movz x10, 0x000, lsl 16		  // base color 0x0000C7
+		movk x10, 0x50f0, lsl 00      // base color 0x1585C7
+		/*water color  */
 		mov x2, SCREEN_HEIGH         // Y Size
 	loop1:
 		mov x1, SCREEN_WIDTH         // X Size
@@ -55,17 +55,28 @@
 
 		//---------------------------------------------------------------
 		// Infinite Loop
-	movz x10, 0x0000C7, lsl 16		
-	movk x10, 0x1585, lsl 00 
- 	mov x1, 100
-		mov x3, SCREEN_WIDTH
-			lsr x3, x3, 1
-			add x3, x3, 210
-			
-		mov x4, SCREEN_HEIGH
-			lsr x4, x4, 1
-			add x4, x4, 50
 	
-	bl rectangle 
+
+ 	mov x1,30
+		mov x3, 1
+			lsl x3, x3, 63
+			add x3, x3, 63
+			add x3, x3, 63
+			add x3, x3, 63
+			add x3, x3, 63
+			
+			
+		mov x4, 1
+			lsl x4, x4,63
+			add x4, x4, 63
+			add x4, x4, 63
+			add x4, x4, 63
+	
+	bl boat
+
+
+
+
+
 
 

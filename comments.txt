@@ -1,0 +1,10 @@
+Para debugear 
+    make 
+    make runQEMUtest 
+
+    abrimos otra terminal 
+    make runGDB 
+
+    dentro de gdb 
+        add-symbol-file app.o 0x0000000000090240
+        recordemos que el numero de main fue sacado de kernel8.list buscando la palabra main
